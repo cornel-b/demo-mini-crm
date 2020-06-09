@@ -32,7 +32,7 @@
               <div class="form-group row">
                 <label for="company" class="col-md-4 col-form-label text-md-right">Company</label>
                 <div class="col-md-6">
-                  {!! Form::select('company_id',  $companies, $employee->company_id, ['class' => 'form-control']) !!}
+                  {!! Form::select('company_id',  $companyList, $employee->company_id, ['class' => 'form-control']) !!}
                   @error('company')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                   @enderror

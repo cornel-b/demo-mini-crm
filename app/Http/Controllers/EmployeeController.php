@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Company;
 use App\Employee;
 use App\Http\Requests\SaveEmployeeRequest;
 use Illuminate\View\View;
@@ -19,9 +18,7 @@ class EmployeeController extends Controller
 
     public function create()
     {
-        $companies = Company::all()->pluck('name', 'id');
-
-        return view('admin.employees.create', ['companies' => $companies]);
+        return view('admin.employees.create');
     }
 
     public function store(SaveEmployeeRequest $request)
@@ -33,9 +30,7 @@ class EmployeeController extends Controller
 
     public function edit(Employee $employee)
     {
-        $companies = Company::all()->pluck('name', 'id');
-
-        return view('admin.employees.edit', ['employee' => $employee, 'companies' => $companies]);
+        return view('admin.employees.edit', ['employee' => $employee]);
     }
 
     public function update(SaveEmployeeRequest $request, Employee $employee)
