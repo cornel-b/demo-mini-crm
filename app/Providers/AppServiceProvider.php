@@ -25,6 +25,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('companyList', Company::all()->pluck('name', 'id'));
+        try {
+            $companyList = Company::all()->pluck('name', 'id');
+        } catch (\Exception $e) {
+            $companyList = [];
+        }
+        View::share('companyList', $companyList);
     }
 }
