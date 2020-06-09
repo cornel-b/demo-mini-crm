@@ -9,5 +9,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('employees', 'EmployeeController');
-Route::resource('companies', 'CompanyController');
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('employees', 'EmployeeController');
+    Route::resource('companies', 'CompanyController');
+});
