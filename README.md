@@ -5,6 +5,7 @@
 * composer install
 
 * copy .env.example .env
+* copy .env.example .env.testing
 
 * php artisan migrate:fresh --seed
 
